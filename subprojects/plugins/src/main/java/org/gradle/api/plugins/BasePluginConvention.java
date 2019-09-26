@@ -16,6 +16,7 @@
 
 package org.gradle.api.plugins;
 
+import org.gradle.api.file.DirectoryProperty;
 import org.gradle.api.internal.project.ProjectInternal;
 
 import java.io.File;
@@ -33,6 +34,13 @@ public abstract class BasePluginConvention {
     public abstract File getDistsDir();
 
     /**
+     * Returns the directory to generate TAR and ZIP archives into.
+     *
+     * @return The directory. Never returns null.
+     */
+    public abstract DirectoryProperty getDistsDirectory();
+
+    /**
      * Returns the directory to generate JAR and WAR archives into.
      *
      * @return The directory. Never returns null.
@@ -40,8 +48,17 @@ public abstract class BasePluginConvention {
     @Deprecated
     public abstract File getLibsDir();
 
+    /**
+     * Returns the directory to generate JAR and WAR archives into.
+     *
+     * @return The directory. Never returns null.
+     */
+    public abstract DirectoryProperty getLibsDirectory();
+
+    @Deprecated
     public abstract ProjectInternal getProject();
 
+    @Deprecated
     public abstract void setProject(ProjectInternal project);
 
     /**
