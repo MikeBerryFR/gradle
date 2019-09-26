@@ -1404,7 +1404,7 @@ Required by:
                 baseName = project.name
                 // TODO LJA: No idea why I have to do this
                 if (project.version != 'unspecified') {
-                    archiveName = "\${project.name}-\${project.version}.jar"
+                    archiveFileName = "\${project.name}-\${project.version}.jar"
                 }
                 destinationDir = buildDir
             }

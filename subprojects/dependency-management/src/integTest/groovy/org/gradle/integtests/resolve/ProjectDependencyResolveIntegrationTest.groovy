@@ -206,10 +206,10 @@ project(':a') {
         configA2
     }
     task A1jar(type: Jar) {
-        archiveName = 'A1.jar'
+        archiveFileName = 'A1.jar'
     }
     task A2jar(type: Jar) {
-        archiveName = 'A2.jar'
+        archiveFileName = 'A2.jar'
     }
     artifacts {
         configA1 A1jar
@@ -620,7 +620,7 @@ project('c') {
     }
 
     @Issue(["GRADLE-3330", "GRADLE-3362"])
-    def "project dependency can resolve multiple artifacts from target project that are differentiated by archiveName only"() {
+    def "project dependency can resolve multiple artifacts from target project that are differentiated by archiveFileName only"() {
         given:
         file('settings.gradle') << "include 'a', 'b'"
 
@@ -633,13 +633,13 @@ project(':a') {
         configTwo
     }
     task A1jar(type: Jar) {
-        archiveName = 'A1.jar'
+        archiveFileName = 'A1.jar'
     }
     task A2jar(type: Jar) {
-        archiveName = 'A2.jar'
+        archiveFileName = 'A2.jar'
     }
     task A3jar(type: Jar) {
-        archiveName = 'A3.jar'
+        archiveFileName = 'A3.jar'
     }
     artifacts {
         configOne A1jar

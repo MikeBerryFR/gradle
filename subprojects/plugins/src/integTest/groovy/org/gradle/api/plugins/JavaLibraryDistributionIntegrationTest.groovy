@@ -94,7 +94,7 @@ class JavaLibraryDistributionIntegrationTest extends WellBehavedPluginTest {
 
         distributions {
             main {
-                baseName 'SuperApp'
+                distributionBaseName = 'SuperApp'
                 contents {
                     from 'others/dist'
                 }
@@ -131,7 +131,7 @@ class JavaLibraryDistributionIntegrationTest extends WellBehavedPluginTest {
 
             distributions{
                 main{
-                    baseName = null
+                    distributionBaseName = null
                 }
             }
             """
@@ -152,7 +152,7 @@ apply plugin:'java-library-distribution'
 
 distributions{
     main{
-        baseName = 'sample'
+        distributionBaseName = 'sample'
     }
 }
 

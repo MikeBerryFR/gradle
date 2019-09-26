@@ -416,7 +416,7 @@ class MavenPublishArtifactCustomizationIntegTest extends AbstractMavenPublishInt
 
             task customJar(type: Jar) {
                 from file("customFile.txt")
-                classifier "customjar"
+                archiveClassifier "customjar"
             }
 
             publishing {
