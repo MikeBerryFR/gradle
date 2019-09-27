@@ -145,7 +145,8 @@ public abstract class AbstractArchiveTask extends AbstractCopyTask {
     @Deprecated
     @ReplacedBy("archiveFile")
     public File getArchivePath() {
-        DeprecationLogger.nagUserOfReplacedProperty("archivePath", "archiveFile");
+        // This is used by the Kotlin plugin, we should upstream a fix to avoid this API first.
+        // DeprecationLogger.nagUserOfReplacedProperty("archivePath", "archiveFile");
         return getArchiveFile().get().getAsFile();
     }
 
