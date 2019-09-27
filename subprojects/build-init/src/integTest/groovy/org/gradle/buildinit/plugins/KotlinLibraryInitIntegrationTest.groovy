@@ -28,6 +28,12 @@ class KotlinLibraryInitIntegrationTest extends AbstractInitIntegrationSpec {
     public static final String SAMPLE_LIBRARY_CLASS = "some/thing/Library.kt"
     public static final String SAMPLE_LIBRARY_TEST_CLASS = "some/thing/LibraryTest.kt"
 
+    def setup() {
+        // Ignore deprecation messages related to archive task deprecations until
+        // we can update the Kotlin plugin
+        executer.noDeprecationChecks()
+    }
+
     def "defaults to kotlin build scripts"() {
         when:
         run ('init', '--type', 'kotlin-library')

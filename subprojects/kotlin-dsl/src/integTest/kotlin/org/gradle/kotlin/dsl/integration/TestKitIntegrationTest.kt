@@ -33,6 +33,10 @@ class TestKitIntegrationTest : AbstractKotlinIntegrationTest() {
 
         withDefaultSettings()
 
+        // Ignore deprecation messages related to archive task deprecations until
+        // we can update the Kotlin plugin
+        executer.noDeprecationChecks()
+
         withBuildScript("""
 
             plugins {

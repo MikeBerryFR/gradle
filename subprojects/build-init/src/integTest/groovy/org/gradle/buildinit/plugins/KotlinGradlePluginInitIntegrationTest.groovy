@@ -24,6 +24,12 @@ import static org.gradle.buildinit.plugins.internal.modifiers.BuildInitDsl.KOTLI
 
 @LeaksFileHandles
 class KotlinGradlePluginInitIntegrationTest extends AbstractInitIntegrationSpec {
+    def setup() {
+        // Ignore deprecation messages related to archive task deprecations until
+        // we can update the Kotlin plugin
+        executer.noDeprecationChecks()
+    }
+    
     def "defaults to kotlin build scripts"() {
         when:
         run ('init', '--type', 'kotlin-gradle-plugin')

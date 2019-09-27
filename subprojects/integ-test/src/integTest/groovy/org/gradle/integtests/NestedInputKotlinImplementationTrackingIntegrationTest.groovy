@@ -31,6 +31,12 @@ class NestedInputKotlinImplementationTrackingIntegrationTest extends AbstractPlu
         return 'build.gradle.kts'
     }
 
+    def setup() {
+        // Ignore deprecation messages related to archive task deprecations until
+        // we can update the Kotlin plugin
+        executer.noDeprecationChecks()
+    }
+
     def "implementations in nested Action property in Kotlin build script is tracked"() {
         setupTaskWithNestedAction('org.gradle.api.Action<File>', '.execute')
         buildFile << """

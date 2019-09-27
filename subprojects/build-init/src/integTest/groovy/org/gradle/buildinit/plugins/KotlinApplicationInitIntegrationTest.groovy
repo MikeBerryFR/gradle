@@ -28,6 +28,12 @@ class KotlinApplicationInitIntegrationTest extends AbstractInitIntegrationSpec {
     public static final String SAMPLE_APP_CLASS = "some/thing/App.kt"
     public static final String SAMPLE_APP_TEST_CLASS = "some/thing/AppTest.kt"
 
+    def setup() {
+        // Ignore deprecation messages related to archive task deprecations until
+        // we can update the Kotlin plugin
+        executer.noDeprecationChecks()
+    }
+
     def "defaults to kotlin build scripts"() {
         when:
         run ('init', '--type', 'kotlin-application')
