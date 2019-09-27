@@ -37,7 +37,10 @@ import java.io.File
 import java.net.URI
 
 
-open class KotlinScriptAdapter internal constructor(
+/**
+ * Commom implementation of [KotlinScript] on top of a few services provided by the [Host].
+ */
+open class DefaultKotlinScript internal constructor(
     host: Host
 ) : KotlinScript {
 
